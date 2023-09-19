@@ -1,13 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+
+import logo from './assets/logo.svg';
+import './assets/App.css';
+import Input from "./components/Input";
+import './assets/all.scss'
 
 function App() {
+  const [text, setText] = useState('');
+  const onChangeHandler = (e) => { setText(e.target.value)	};
+
+  useEffect(() => {	
+    (async () => {	
+      const result = await axios.get('https://randomuser.me/api/');
+      console.log(result);
+    })();
+  },[])
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam doloremque praesentium nostrum vero tempora aliquid numquam officia inventore iure laudantium ipsa expedita, quaerat fugit enim, voluptate, omnis explicabo sit dolorum!
         </p>
         <a
           className="App-link"
@@ -17,6 +33,8 @@ function App() {
         >
           Learn React
         </a>
+        <button type="button" className="btn btn-primary">Primary</button>
+        <Input id="sampleText" text="這是一個input" value={text} onChangeHandler={onChangeHandler} />
       </header>
     </div>
   );
