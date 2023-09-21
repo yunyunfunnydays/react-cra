@@ -1,43 +1,27 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-
-
-import logo from './assets/logo.svg';
-import './assets/App.css';
-import Input from "./components/Input";
 import './assets/all.scss'
+import {Routes, Route} from 'react-router-dom';
+
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import About from "./pages/About"
+import AlbumLayout from './pages/AboutLayout';
 
 function App() {
-  const [text, setText] = useState('');
-  const onChangeHandler = (e) => { setText(e.target.value)	};
-
-  useEffect(() => {	
-    (async () => {	
-      const result = await axios.get('https://randomuser.me/api/');
-      console.log(result);
-    })();
-  },[])
-
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam doloremque praesentium nostrum vero tempora aliquid numquam officia inventore iure laudantium ipsa expedita, quaerat fugit enim, voluptate, omnis explicabo sit dolorum!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <button type="button" className="btn btn-primary">Primary</button>
-        <Input id="sampleText" text="這是一個input" value={text} onChangeHandler={onChangeHandler} />
-      </header>
+      <Navbar/>
+    <div className="container mt-3">
+      <Routes>
+        <Route path='/' element={<Home />}></Route>
+        <Route path='/about' element={<About />}></Route>
+        <Route path='/album' element={<AlbumLayout />}>
+          
+        </Route>
+      </Routes>
+
     </div>
-  );
+    </div>
+  )
 }
 
 export default App;
