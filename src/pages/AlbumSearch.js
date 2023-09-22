@@ -5,7 +5,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import List from "../components/List";
 
 const api = 'https://api.unsplash.com/search/photos';
-const accessId = process.env.REACT_APP_UNSPLASH_API;
+const accessId = process.env.REACT_APP_UNSPLASH_ACCESS;
 
 export default function AlbumSearch() {
   const [search, setSearch] = useState('');

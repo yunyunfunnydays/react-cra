@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const api = 'https://api.unsplash.com/photos';
-const accessId = process.env.REACT_APP_UNSPLASH_API;
+const accessId = process.env.REACT_APP_UNSPLASH_ACCESS;
 
 export default function AlbumPhoto () {
   const [photo, setPhoto] = useState({});
