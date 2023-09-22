@@ -18,7 +18,7 @@ export default function Navbar () {
               }}>About</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/album" className="nav-link" activeClassName="active">Album</NavLink>
+              <NavLink to="/album" className="nav-link" >Album</NavLink>
             </li>
           </ul>
         </div>
