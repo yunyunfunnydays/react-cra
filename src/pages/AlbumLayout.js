@@ -27,7 +27,6 @@ export default function AlbumLayout() {
       </div>
       <div className="col-8">
         <Outlet context={list}/>
-        <Outlet context={list}/>
       </div>
     </div>
   )
